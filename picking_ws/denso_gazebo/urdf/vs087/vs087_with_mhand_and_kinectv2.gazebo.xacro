@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot name="vs087" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/vs087_description/vs087_with_mhand_and_kinectv2/vs087_with_mhand_and_kinectv2.urdf.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/vs087/vs087.gazebo.macro.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/sensors/kinectv2.gazebo.xacro"/>
+  <xacro:include filename="$(find mhand_gazebo)/robots/mhand.gazebo.xacro"/>
+
+  <xacro:arg name="load_grasp_fix" default="true"/>
+  <xacro:arg name="angle_tolerance" default="0" />
+
+  <!-- Include gazebo grasp_fix plugin -->
+  <xacro:if value="$(arg load_grasp_fix)">
+    <xacro:include filename="$(find denso_gazebo)/urdf/tools/gzplugin_grasp_fix_3_grippers.gazebo.macro.xacro"/>
+    <xacro:gzplugin_grasp_fix_3_grippers arm_name="vs087" palm_link="J6"
+      gripper_link_1="mhand_finger_A" gripper_link_2="mhand_finger_B" gripper_link_3="mhand_finger_C"　angle_tolerance="$(arg angle_tolerance)"/>
+  </xacro:if>
+  <!-- Gazebo -->
+  <xacro:kinect_gazebo name="kinect2"/>
+</robot>

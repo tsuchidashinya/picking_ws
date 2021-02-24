@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot name="vs087" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/vs087_description/vs087_with_iai_gripper/vs087_with_iai_gripper.urdf.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/vs087/vs087.gazebo.macro.xacro"/>
+  <xacro:include filename="$(find iai_gripper_gazebo)/robots/iai_gripper.gazebo.xacro"/>
+
+  <xacro:arg name="load_grasp_fix" default="true"/>
+  <xacro:arg name="angle_tolerance" default="0" />
+
+  <!-- Include gazebo grasp_fix plugin -->
+  <xacro:if value="$(arg load_grasp_fix)">
+    <xacro:include filename="$(find denso_gazebo)/urdf/tools/gzplugin_grasp_fix_2_grippers.gazebo.macro.xacro"/>
+    <xacro:gzplugin_grasp_fix_2_grippers arm_name="vs087" palm_link="J6"
+      gripper_link_1="iai_gripper_finger_A" gripper_link_2="iai_gripper_finger_B" angle_tolerance="$(arg angle_tolerance)"/>
+  </xacro:if>
+</robot>

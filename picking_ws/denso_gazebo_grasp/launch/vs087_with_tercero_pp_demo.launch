@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model_name" default="box" />
+  <arg name="gripper_type" default="tercero_short" />
+  <arg name="angle_tolerance" default="0" />
+  <arg name="ratio_threshold" default="0.3" />
+  <arg name="time" default="0.05" />
+  <arg name="speed_scale" default="1.0"/>
+  <arg name="init_pose" default="-x 0.6 -y 0.0 -z 0.5 -R 0.0 -P 0.0 -Y 0.0"/>
+
+
+  <include file="$(find denso_bringup)/launch/vs087_bringup/vs087_with_tercero_bringup.launch">
+    <arg name="angle_tolerance" value="$(arg angle_tolerance)" />
+    <arg name="ratio_threshold" value="$(arg ratio_threshold)" />
+    <arg name="time" value="$(arg time)" />
+  </include>
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="spawn_object" args="12 $(find denso_gazebo)/launch/objects/spawn_$(arg model_name).launch init_pose:=$(arg init_pose)" />
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="grasp_point_publisher" args="15 $(find denso_gazebo_grasp)/launch/grasp_point.launch model_name:=$(arg model_name) gripper_type:=$(arg gripper_type)" />
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="pp_demo" args="16 $(find denso_gazebo_grasp)/launch/pp_demo.launch speed_scale:=$(arg speed_scale)" />
+
+</launch>

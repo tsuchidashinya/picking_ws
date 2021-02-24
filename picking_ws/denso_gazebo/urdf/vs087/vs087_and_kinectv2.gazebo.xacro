@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="vs087" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/vs087_description/vs087_and_kinectv2/vs087_and_kinectv2.urdf.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/vs087/vs087.gazebo.macro.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/sensors/kinectv2.gazebo.xacro"/>
+
+  <!-- Gazebo -->
+  <xacro:kinect_gazebo name="kinect2"/>
+</robot>

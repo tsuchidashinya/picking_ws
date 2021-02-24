@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model_name" default="box" />
+  <arg name="model_type" default="box" />
+  <arg name="src_frame_name" default="world" />
+  <arg name="model_gazebo_name" default="box" />
+
+  <arg name="model" value="$(find denso_gazebo)/urdf/objects/$(arg model_type)/$(arg model_name).urdf.gazebo.xacro"/>
+  <param name="$(arg model_name)_description" type="str" command="$(find xacro)/xacro --inorder $(arg model) box_m:=1.0 box_h:=0.06 box_w:=0.05 box_d:=0.07"/>
+
+  <node name="spawn_box_urdf" pkg="gazebo_ros" type="spawn_model" args="-param $(arg model_name)_description -urdf -x 0.6 -y 0.0 -z 0.5 -R 0.0 -P 0.0 -Y 0.0 -model $(arg model_gazebo_name)" respawn="false" output="screen" />
+
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="timed_roslaunch" args="1 denso_gazebo model_tf_broadcaster.launch model_name:=$(arg model_name) src_frame_name:=$(arg src_frame_name)" output="screen" />
+</launch>

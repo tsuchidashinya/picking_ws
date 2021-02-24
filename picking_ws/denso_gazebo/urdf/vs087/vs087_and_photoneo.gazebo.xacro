@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot name="vs087" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/vs087_description/vs087_and_photoneo/vs087_and_photoneo.urdf.xacro" />
+  <xacro:include filename="$(find denso_gazebo)/urdf/vs087/vs087.gazebo.macro.xacro" />
+  <xacro:include filename="$(find denso_gazebo)/urdf/sensors/phoxi_camera.gazebo.xacro" />
+
+  <xacro:photoneo_gazebo sensor_link_name="photoneo_center" size="L" />
+</robot>

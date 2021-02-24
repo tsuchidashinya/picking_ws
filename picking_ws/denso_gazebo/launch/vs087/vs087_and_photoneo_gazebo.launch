@@ -1,0 +1,52 @@
+<launch>
+  <!-- Override robot_name argument -->
+  <arg name="robot_name" default="vs087" />
+  <arg name="robot_options" default="vs087_and_photoneo" />
+
+  <arg name="use_custom_ros_control" default="false" />
+
+  <!-- Robot description argument -->
+  <arg name="robot_description" value="$(arg robot_name)_description" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find denso_gazebo)/worlds/denso_room_mini.world"/>
+  </include>
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <arg name="model" value="$(find denso_gazebo)/urdf/$(arg robot_name)/$(arg robot_options).gazebo.xacro"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) use_custom_ros_control:=$(arg use_custom_ros_control) base_link_x:=0 base_link_y:=-0.68 base_link_z:=0.485"/>
+
+  <arg name="gui" default="true"/>
+  <param name="use_gui" value="$(arg gui)"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg robot_name)" />
+
+  <group if="$(arg use_custom_ros_control)">
+    <include ns="/$(arg robot_name)" file="$(find denso_gazebo_control)/config/$(arg robot_name)/$(arg robot_name)/$(arg robot_name).launch.xml" />
+  </group>
+
+  <rosparam file="$(find denso_gazebo)/config/$(arg robot_name)/$(arg robot_name)_control_sim.yaml" command="load" />
+  <rosparam ns="/$(arg robot_name)" command="load" file="$(find denso_gazebo_control)/config/$(arg robot_name)/$(arg robot_name)/$(arg robot_name)_joint_limit.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+	ns="/$(arg robot_name)" args="joint_state_controller arm_controller" />
+
+  <!-- robot_state_publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+  type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/$(arg robot_name)/joint_states" />
+  </node>
+
+  <!-- joint_state_publisher -->
+  <arg name="robot_joint_states" default="[/$(arg robot_name)/joint_states]"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="False"/>
+    <rosparam param="/source_list" subst_value="True">$(arg robot_joint_states)</rosparam>
+  </node>
+
+  <!-- Denso-Arm-Sim driver -->
+  <node pkg="denso_gazebo" type="listener.py" name="denso_robot_arm_listener_sim" output="screen" >
+    <param name="robot_name" value="$(arg robot_name)" />
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find denso_descriptions)/config/robot_state_visualize_photoneo.rviz" required="true" />
+</launch>

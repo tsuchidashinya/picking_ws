@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="angle_tolerance" default="0" />
+  <arg name="ratio_threshold" default="0.3" />
+  <arg name="time" default="0.05" />
+  <arg name="speed_scale" default="1.0"/>
+
+
+  <include file="$(find denso_bringup)/launch/vs087_bringup/vs087_with_tercero_bringup.launch">
+    <arg name="angle_tolerance" value="$(arg angle_tolerance)" />
+    <arg name="ratio_threshold" value="$(arg ratio_threshold)" />
+    <arg name="time" value="$(arg time)" />
+  </include>
+
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="move_loop" args="12 $(find denso_gazebo_grasp)/launch/move_loop.launch speed_scale:=$(arg speed_scale)" />
+
+</launch>

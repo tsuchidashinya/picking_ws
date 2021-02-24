@@ -1,0 +1,137 @@
+object:
+  box:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.21
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  HV8:
+    tercero_long:
+      pos_x: 0.045
+      pos_y: 0.0
+      pos_z: 0.22
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.045
+      pos_y: 0.0
+      pos_z: 0.19
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  object_1:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.15
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  object_2:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.15
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  object_3:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.15
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  object_4:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.15
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  object_5:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.15
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+  object_6:
+    tercero_long:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.18
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0
+    tercero_short:
+      pos_x: 0.0
+      pos_y: 0.0
+      pos_z: 0.15
+      ori_w: 0.0
+      ori_x: 1.0
+      ori_y: 0.0
+      ori_z: 0.0

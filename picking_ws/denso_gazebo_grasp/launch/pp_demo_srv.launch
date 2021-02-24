@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="speed_scale" default="1.0"/>
+  <node pkg="denso_gazebo_grasp" type="pp_demo_srv" name="pp_demo_srv" output="screen">
+    <param name="speed_scale" value="$(arg speed_scale)"/>
+  </node>
+</launch>

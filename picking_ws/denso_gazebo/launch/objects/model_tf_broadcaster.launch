@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model_name" default="box" />
+  <arg name="src_frame_name" default="world" />
+
+  <node pkg="denso_gazebo" type="model_tf_publisher" name="$(arg model_name)_tf_broadcaster" output="screen">
+    <param name="model_name" value="$(arg model_name)" />
+    <param name="src_frame_name" value="$(arg src_frame_name)" />
+  </node>
+</launch>

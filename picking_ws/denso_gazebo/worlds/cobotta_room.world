@@ -1,0 +1,227 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <model name="carpet">
+      <static>true</static>
+      <link name="carpet">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/carpet/mini_carpet.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>2.4 1.1 0.002  0 0 0</pose>
+    </model>
+
+    <model name="sofa">
+      <static>true</static>
+      <link name="sofa">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/sofa/sofa.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/sofa/sofa.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>6.57 0.215 0  0 0 3.14</pose>
+    </model>
+
+    <model name="main_desk">
+      <!-- base_link posision(x,y,z) = (4.96, -0.385, ???) -->
+      <static>true</static>
+      <link name="main_desk">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/main_desk/main_desk.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/main_desk/main_desk.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>4.96 -0.385 0  0 0 0</pose>
+    </model>
+
+    <model name="sub_desk">
+      <static>true</static>
+      <link name="sub_desk">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/sub_desk/sub_desk.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/sub_desk/sub_desk.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>4.815 2 0  0 0 -1.57</pose>
+    </model>
+
+    <model name="LGmonitor_1">
+      <static>true</static>
+      <link name="LGmonitor_1">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/LGmonitor/LGmonitor.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/LGmonitor/display_1/LGmonitor.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>5.213 2.182 0.7  0 0 -2</pose>
+    </model>
+
+    <model name="chair_black_1">
+      <static>true</static>
+      <link name="chair_black_1">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/office_chair/office_chair.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/office_chair/office_chair_black.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>5 -1.816 0  0 0 -3</pose>
+    </model>
+
+    <model name="chair_black_2">
+      <static>true</static>
+      <link name="chair_black_2">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/office_chair/office_chair.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/office_chair/office_chair_black.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>4.2 -0.852 0  0 0 1.57</pose>
+    </model>
+
+    <model name="chair_red_1">
+      <static>true</static>
+      <link name="chair_red_1">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/office_chair/office_chair.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/office_chair/office_chair_red.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>4.6 1.552 0  0 0 -3.0</pose>
+    </model>
+
+    <model name="chair_green_1">
+      <static>true</static>
+      <link name="chair_green_1">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/office_chair/office_chair.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/office_chair/office_chair_green.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>4.092 0.374 0  0 0 1.6</pose>
+    </model>
+
+    <model name="indoor_plant_1">
+      <static>true</static>
+      <link name="indoor_plant_1">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/indoor_plant/indoor_plant.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/indoor_plant/indoor_plant.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>6.1 2 0  0 0 0</pose>
+    </model>
+
+  </world>
+</sdf>

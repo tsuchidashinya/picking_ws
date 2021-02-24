@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_name" default="vs087" />
+  <arg name="angle_tolerance" default="100" />
+  <arg name="ratio_threshold" default="0.3" />
+  <arg name="time" default="10.0" />
+
+  <node pkg="denso_gazebo_grasp" type="tercero_grasp_service_server" name="tercero_grasp_service_server" output="screen">
+    <param name="robot_name" value="$(arg robot_name)" />
+    <param name="angle_tolerance" value="$(arg angle_tolerance)" />
+    <param name="ratio_threshold" value="$(arg ratio_threshold)" />
+    <param name="time" value="$(arg time)" />
+  </node>
+</launch>

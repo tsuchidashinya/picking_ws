@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <model name="workbench_left">
+      <!-- base_link posision(x,y,z) = (0, -0.68, 0.485) -->
+      <static>true</static>
+      <link name="workbench_left">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/workbench/workbench.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/workbench/workbench.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>0 -0.68 0  0 0 0</pose>
+    </model>
+
+    <model name="worksheet">
+      <static>true</static>
+      <link name="worksheet">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/worksheet/worksheet.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/worksheet/worksheet.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>0.12 -0.68 0.485  0 0 0</pose>
+    </model>
+
+    <model name="workbench_right">
+      <!-- base_link posision(x,y,z) = (0, 0.68, 0.485) -->
+      <static>true</static>
+      <link name="workbench_right">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/workbench/workbench.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/workbench/workbench.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>0 0.68 0  0 0 0</pose>
+    </model>
+
+    <model name="sensor_stand">
+      <static>true</static>
+      <link name="sensor_stand">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/STL/sensor_stand/sensor_stand.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://meshes/DAE/sensor_stand/sensor_stand.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <pose>1.445 -0.68 0  0 0 3.14</pose>
+    </model>
+
+  </world>
+</sdf>

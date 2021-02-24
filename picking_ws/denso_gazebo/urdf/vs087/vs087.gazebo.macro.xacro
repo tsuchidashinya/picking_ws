@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="use_custom_ros_control" default="false"/>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/vs087</robotNamespace>
+      <xacro:if value="$(arg use_custom_ros_control)">
+        <robotSimType>denso_gazebo_control/DensoRobotHWSim</robotSimType>
+      </xacro:if>
+      <xacro:unless value="$(arg use_custom_ros_control)">
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </xacro:unless>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+</robot>

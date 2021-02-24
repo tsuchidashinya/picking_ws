@@ -1,0 +1,7 @@
+<library path="lib/libdenso_gazebo_control">
+  <class name="denso_gazebo_control/DensoRobotHWSim" type="denso_gazebo_control::DensoRobotHWSim" base_class_type="gazebo_ros_control::RobotHWSim">
+    <description>
+      A custom gazebo plugin for real robot hw test.
+    </description>
+  </class>
+</library>

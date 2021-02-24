@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>denso_gazebo_control</name>
+  <version>0.0.0</version>
+  <description>The denso_gazebo_control package</description>
+  <maintainer email="yamafukukei@todo.todo">yamafukukei</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>control_toolbox</depend>
+  <depend>gazebo</depend>
+  <depend>gazebo_ros_control</depend>
+  <depend>hardware_interface</depend>
+  <depend>joint_limits_interface</depend>
+  <depend>roscpp</depend>
+
+  <build_depend>angles</build_depend>
+  <build_depend>denso_gazebo_msgs</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>urdf</build_depend>
+
+  <exec_depend>angles</exec_depend>
+  <exec_depend>denso_gazebo_msgs</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <export>
+    <gazebo_ros_control plugin="${prefix}/denso_gazebo_control.xml"/>
+  </export>
+
+</package>

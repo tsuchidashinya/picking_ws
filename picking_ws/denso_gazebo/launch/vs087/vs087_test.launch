@@ -1,0 +1,30 @@
+<launch>
+  <!---->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <arg name="model" default="$(find denso_descriptions)/vs087_description/vs087_twin/vs087_twin.urdf" />
+  <!--<arg name="model" default="$(find sixdofarm)/urdf/twin.urdf" />-->
+  <arg name="gui" default="true" />
+  <param name="robot_description" textfile="$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <!--<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />-->
+
+
+  <param name="robot_description" type="str" textfile="$(find denso_descriptions)/vs087_description/vs087_twin/vs087_twin.urdf"/>
+
+  <arg name="init_pose" default="-x 0 -y 1 -z 0 -R 0 -P 0 -Y 0" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -param robot_description -urdf -model robot2" />
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find denso_gazebo)/config/vs087/vs087_twin_control_sim.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/robot2" args="arm_controller joint_state_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/robot2/joint_states" />
+  </node>
+
+</launch>

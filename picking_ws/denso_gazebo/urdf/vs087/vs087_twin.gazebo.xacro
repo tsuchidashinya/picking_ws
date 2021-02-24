@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot name="robot2" 
+  xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/vs087_description/vs087_twin/vs087_twin.urdf.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/vs087/vs087.gazebo.macro.xacro"/>
+</robot>

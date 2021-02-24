@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="HV8_gazebo">
+    <gazebo reference="HV8">
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <material>Gazebo/Gray</material>
+    </gazebo>
+  </xacro:macro>
+</robot>

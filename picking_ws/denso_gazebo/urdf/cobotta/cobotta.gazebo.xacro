@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="cobotta" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/cobotta_description/cobotta/cobotta.urdf.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/cobotta/cobotta.gazebo.macro.xacro"/>
+</robot>

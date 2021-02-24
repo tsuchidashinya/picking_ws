@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="speed_scale" default="1.0"/>
+  <arg name="sleep" default="3"/>
+  <node pkg="denso_gazebo_grasp" type="pp_demo" name="pp_demo" output="screen">
+    <param name="speed_scale" value="$(arg speed_scale)"/>
+    <param name="sleep" value="$(arg sleep)"/>
+  </node>
+</launch>

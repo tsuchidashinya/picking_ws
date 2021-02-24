@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>denso_simulator</name>
+  <version>1.0.0</version>
+  <description>The denso_simulator package</description>
+
+  <maintainer email="atsuki.yokota@gmail.com">Atsuki Yokota</maintainer>
+  <license>BSD</license>
+  <url type="repository">http://github.com/Nishida-Lab/denso_simulator</url>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>denso_gazebo</exec_depend>
+  <exec_depend>denso_gazebo_control</exec_depend>
+  <exec_depend>denso_gazebo_grasp</exec_depend>
+  <exec_depend>denso_gazebo_msgs</exec_depend>
+  <exec_depend>denso_gazebo_srvs</exec_depend>
+
+  <export>
+    <metapackage />
+  </export>
+</package>

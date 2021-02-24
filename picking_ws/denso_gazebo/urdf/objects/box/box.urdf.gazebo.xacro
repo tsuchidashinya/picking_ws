@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="box_v0" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/object_description/box.urdf.xacro" />
+  <xacro:include filename="$(find denso_gazebo)/urdf/objects/box/box.gazebo.xacro" />
+
+  <xacro:box_gazebo />
+</robot>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot name="cobotta" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find denso_descriptions)/cobotta_description/cobotta_with_cobotta_gripper/cobotta_with_cobotta_gripper.urdf.xacro"/>
+  <xacro:include filename="$(find denso_gazebo)/urdf/cobotta/cobotta.gazebo.macro.xacro"/>
+  <xacro:include filename="$(find cobotta_gripper_gazebo)/robots/parallel_gripper.gazebo.xacro"/>
+
+  <xacro:arg name="load_grasp_fix" default="true"/>
+  <xacro:arg name="angle_tolerance" default="0" />
+
+  <!-- Include gazebo grasp_fix plugin -->
+  <xacro:if value="$(arg load_grasp_fix)">
+    <xacro:include filename="$(find denso_gazebo)/urdf/tools/gzplugin_grasp_fix_2_grippers.gazebo.macro.xacro"/>
+    <xacro:gzplugin_grasp_fix_2_grippers arm_name="cobotta" palm_link="J6"
+      gripper_link_1="finger_L" gripper_link_2="finger_R" angle_tolerance="$(arg angle_tolerance)"/>
+  </xacro:if>
+</robot>
